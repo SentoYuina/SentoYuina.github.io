@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="千田悠依奈｜熊熊小鎮">
+  <title>千田悠依奈｜熊熊小鎮</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f4a050'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='34'%3E🐾%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#fff9ef; --paper:#fffdf9; --ink:#4d3429; --muted:#89695a; --orange:#f4a050; --peach:#ffd8ad; --line:#edc79e; }
+    * { box-sizing:border-box; }
+    html { min-height:100%; }
+    body { min-height:100%; margin:0; color:var(--ink); background:var(--cream); font-family:"Zen Maru Gothic","Noto Sans TC",sans-serif; font-weight:700; transition:background-color .48s ease, color .48s ease; }
+    a { color:inherit; text-decoration:none; }
+    .page { position:relative; min-height:100vh; overflow:hidden; isolation:isolate; transition:background .48s ease, color .48s ease; }
+    .blob { position:absolute; z-index:-2; border-radius:50%; filter:blur(1px); transition:background .48s ease, opacity .48s ease; }
+    .blob.one { width:570px; height:570px; right:-240px; top:-240px; background:#ffe3b8; }
+    .blob.two { width:390px; height:390px; left:-240px; bottom:-230px; background:#ffe2ba; }
+    .dots { position:absolute; z-index:-1; width:120px; height:120px; background-image:radial-gradient(var(--orange) 2px, transparent 2px); background-size:18px 18px; opacity:.32; transition:background-image .48s ease, opacity .48s ease; }
+    .dots.a { right:4%; top:14%; transform:rotate(14deg); }
+    .dots.b { left:4%; bottom:9%; transform:rotate(-8deg); }
+    .wrap { width:min(1280px, calc(100% - 56px)); margin:0 auto; }
+    header { display:flex; align-items:center; justify-content:flex-end; min-height:78px; gap:20px; }
+    .tiny-link { display:inline-flex; align-items:center; gap:7px; padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,249,.75); color:var(--muted); font:700 12px/1 "DM Sans",sans-serif; letter-spacing:.08em; cursor:pointer; transition:transform .2s ease, background .48s ease, border-color .48s ease, color .48s ease; }
+    .tiny-link:hover { transform:translateY(-2px) rotate(-2deg); }
+    .editor-link { display:inline-flex; align-items:center; gap:7px; padding:10px 16px; border:1px solid rgba(244,160,80,.72); border-radius:999px; background:rgba(255,244,226,.82); color:#a96031; font:700 12px/1 "DM Sans",sans-serif; letter-spacing:.07em; transition:transform .2s ease, background .48s ease, border-color .48s ease, color .48s ease, box-shadow .2s ease; }
+    .editor-link:hover { transform:translateY(-2px) rotate(2deg); background:#fffaf0; box-shadow:0 7px 0 rgba(204,132,66,.1); }
+    main { display:grid; grid-template-columns:minmax(500px,1.04fr) minmax(405px,.96fr); min-height:calc(100vh - 128px); align-items:center; gap:24px; padding:18px 0 34px; }
+    .intro { position:relative; z-index:2; padding:10px 0 28px; }
+    .kicker { display:inline-flex; align-items:center; gap:8px; margin:0 0 14px; padding:9px 13px; border-radius:999px; background:#ffe9ca; color:#b76c2f; font:700 12px/1 "DM Sans",sans-serif; letter-spacing:.1em; transition:background .48s ease, color .48s ease, box-shadow .48s ease; }
+    h1 { position:relative; margin:0; max-width:530px; line-height:.94; letter-spacing:-.1em; }
+    .title-pre { display:block; margin:0 0 6px 4px; color:var(--ink); font-size:clamp(28px,3.4vw,44px); font-weight:700; letter-spacing:-.08em; transition:color .48s ease, text-shadow .48s ease; }
+    h1 em { display:inline-block; position:relative; z-index:1; margin-left:-4px; color:var(--orange); font-size:clamp(76px,9.4vw,120px); font-style:normal; text-shadow:5px 5px 0 #fff3df; transition:color .48s ease, text-shadow .48s ease; }
+    .title-post { display:inline-block; position:relative; z-index:2; margin-left:6px; color:var(--ink); font-size:clamp(30px,3.5vw,46px); font-weight:700; letter-spacing:-.1em; transform:rotate(-7deg); transform-origin:left bottom; }
+    .title-stamp { display:inline-block; position:relative; z-index:3; margin:9px 0 0 10px; padding:8px 11px; border:2px solid var(--orange); border-radius:10px; color:#a86032; background:#fff9eb; box-shadow:3px 3px 0 rgba(218,139,72,.2); font-size:12px; font-weight:700; letter-spacing:.03em; line-height:1.22; transform:rotate(4deg); vertical-align:middle; }
+    .name { display:block; margin:16px 0 0 3px; color:var(--muted); font:700 clamp(16px,1.7vw,21px)/1 "DM Sans",sans-serif; letter-spacing:.18em; }
+    .page.english .intro { font-family:"DM Sans","Zen Maru Gothic",sans-serif; }
+    .page.english h1 { max-width:620px; line-height:.95; letter-spacing:-.06em; }
+    .page.english .title-pre { margin:0 0 9px; font-size:clamp(27px,3vw,40px); letter-spacing:-.055em; }
+    .page.english h1 em { display:block; margin:0; font-size:clamp(74px,9vw,118px); letter-spacing:-.085em; line-height:.82; }
+    .page.english .title-post { display:block; margin:11px 0 0 2px; font-size:clamp(29px,3.2vw,44px); letter-spacing:-.065em; transform:none; }
+    .page.english .title-stamp { margin:13px 0 0 3px; font-size:11px; transform:rotate(3deg); }
+    .page.english .name { margin-top:16px; }
+    .identity { max-width:590px; margin:26px 0 0; color:#76513d; font-size:21px; font-weight:700; line-height:1.65; }
+    .identity #identitySub { color:var(--muted); font-size:17px; font-weight:700; }
+    .profile-tags { display:flex; flex-wrap:wrap; gap:8px; max-width:600px; margin:17px 0 19px; }
+    .profile-tag { padding:9px 13px; border:1px solid rgba(211,148,89,.28); border-radius:999px; background:rgba(255,253,249,.72); color:#916044; font-size:13px; font-weight:700; }
+    .profile-tag:nth-child(2) { background:#fff0d4; }
+    .profile-tag:nth-child(3) { background:#e7f0db; color:#61804b; }
+    .bio { max-width:555px; margin:0 0 26px; color:var(--muted); font-size:16px; line-height:1.85; }
+    .button-grid { display:grid; max-width:600px; grid-template-columns:1fr 1fr; gap:12px; }
+    .link-button { display:flex; align-items:center; min-height:70px; gap:14px; padding:12px 17px; border:1px solid var(--line); border-radius:18px; background:rgba(255,253,249,.88); box-shadow:0 8px 0 rgba(204,132,66,.08); transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .link-button:hover { transform:translateY(-3px) rotate(-.5deg); background:#fff; box-shadow:0 12px 0 rgba(204,132,66,.1); }
+    .link-button .icon { display:grid; flex:0 0 42px; place-items:center; width:42px; height:42px; border-radius:14px; background:var(--peach); color:#8e5431; font:700 19px/1 "DM Sans",sans-serif; }
+    .link-button:nth-child(2) .icon { background:#e9d8f7; color:#765199; }
+    .link-button:nth-child(3) .icon { background:#ffecba; color:#ad7624; }
+    .link-button:nth-child(4) .icon { background:#ffdce3; color:#b66276; }
+    .link-button:nth-child(5) .icon { background:#e2f0d8; color:#668c4c; }
+    .link-button strong { display:block; font-size:16px; line-height:1.05; }
+    .link-button span:last-child { display:block; margin-top:5px; color:var(--muted); font:700 12px/1 "DM Sans",sans-serif; letter-spacing:.07em; }
+    .hint { margin:19px 0 0; color:#aa8065; font-size:13px; }
+    .art { position:relative; height:min(720px, calc(100vh - 98px)); min-height:565px; }
+    .art::before { content:""; position:absolute; width:86%; aspect-ratio:1; right:-4%; top:2%; border:3px dashed rgba(244,160,80,.4); border-radius:48% 52% 46% 54%; transform:rotate(-8deg); }
+    .art::after { content:""; position:absolute; width:80%; aspect-ratio:1; right:0; top:5%; border-radius:51% 49% 58% 42%; background:#ffe4b8; z-index:-1; }
+    .art-label { position:absolute; z-index:9; left:0; top:12%; padding:13px 17px; border:2px solid #fff9ef; border-radius:15px 15px 15px 3px; background:var(--orange); color:#fff; box-shadow:4px 5px 0 rgba(192,111,45,.2); font:700 16px/1.25 "DM Sans",sans-serif; letter-spacing:.07em; text-align:left; transform:rotate(-7deg); cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+    .art-label:hover, .art-label:focus-visible { transform:rotate(-4deg) translateY(-3px); box-shadow:5px 8px 0 rgba(192,111,45,.2); }
+    .art-label b { display:block; margin-top:4px; color:#fff1d8; font-size:12px; letter-spacing:.12em; }
+    .orbit-dot { position:absolute; z-index:2; width:14px; height:14px; border:3px solid rgba(244,160,80,.52); border-radius:50%; background:#fff9ef; }
+    .orbit-dot.one { left:8%; bottom:24%; }
+    .orbit-dot.two { left:14%; bottom:17%; width:9px; height:9px; opacity:.8; }
+    .character-button { position:absolute; z-index:8; left:60%; top:10%; width:min(590px, 93%); margin:0; padding:10px; border:3px solid rgba(255,253,249,.95); border-radius:42px; background:#fffdf9; box-shadow:0 20px 0 rgba(204,132,66,.12), 0 25px 40px rgba(117,73,42,.16); color:inherit; cursor:pointer; transform:translateX(-50%) rotate(-3deg); transition:opacity .16s ease, transform .2s ease, box-shadow .22s ease; }
+    .character-button::before { content:""; position:absolute; z-index:1; top:-10px; left:53%; width:78px; height:18px; border:1px solid rgba(220,142,69,.22); border-radius:3px; background:rgba(255,221,171,.82); transform:translateX(-50%) rotate(6deg); }
+    .character-button:hover, .character-button:focus-visible { transform:translateX(-50%) rotate(2deg) translateY(-5px); box-shadow:0 25px 0 rgba(204,132,66,.13), 0 31px 45px rgba(117,73,42,.18); }
+    .character-button.is-switching { opacity:0; transform:translateX(-50%) rotate(-3deg) scale(.94); }
+    .character-portrait { display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:30px; opacity:1; transform:scale(1); transition:opacity .18s ease, transform .18s ease, filter .35s ease; pointer-events:none; }
+    .tap-hint { position:absolute; z-index:2; left:50%; bottom:-18px; padding:8px 11px; border:1px solid rgba(255,255,255,.8); border-radius:999px; background:rgba(255,253,249,.95); color:#9b653e; font-size:11px; font-weight:700; opacity:0; transform:translate(-50%, 5px); transition:opacity .2s ease, transform .2s ease; white-space:nowrap; }
+    .character-button:hover .tap-hint, .character-button:focus-visible .tap-hint { opacity:1; transform:translate(-50%, 0); }
+    .mini-note { position:absolute; z-index:9; right:-7%; bottom:15%; padding:15px 19px; border:3px solid #fff7e9; border-radius:999px; background:var(--orange); color:#fff; box-shadow:0 11px 0 rgba(210,124,48,.22); font-size:19px; font-weight:700; letter-spacing:.05em; transform:rotate(-8deg); white-space:nowrap; }
+    .chaos { position:absolute; z-index:4; color:var(--orange); font-family:"DM Sans",sans-serif; font-weight:900; line-height:1; pointer-events:none; }
+    .chaos.bang { z-index:9; left:2%; top:2%; font-size:53px; transform:rotate(-15deg); }
+    .chaos.paw { z-index:9; right:-10%; top:19%; color:#b991d7; font-size:34px; transform:rotate(17deg); }
+    .chaos.star { z-index:9; left:3%; bottom:11%; color:#ffbf4f; font-size:40px; transform:rotate(14deg); }
+    .page.neon { --cream:#050509; --paper:#0d0b13; --ink:#e8d4eb; --muted:#a87fae; --orange:#ca3c76; --peach:#351635; --line:#4c294d; background:radial-gradient(circle at 81% 18%, rgba(71,255,213,.08), transparent 28%), radial-gradient(circle at 13% 83%, rgba(255,28,107,.09), transparent 31%), #050509; }
+    .page.neon .blob.one { background:#151229; opacity:.7; }
+    .page.neon .blob.two { background:#240d1b; opacity:.62; }
+    .page.neon .dots { background-image:radial-gradient(#61cdbd 2px, transparent 2px); opacity:.2; }
+    .page.neon .kicker { background:#1c1024; color:#8bd8ce; box-shadow:0 0 15px rgba(94,255,216,.08); }
+    .page.neon h1 { text-shadow:none; }
+    .page.neon h1 em { color:#78cfc3; text-shadow:3px 0 #a92c61, -2px 0 #4ba89e; }
+    .page.neon .title-pre, .page.neon .title-post { color:#d8bbdc; text-shadow:1px 0 #a92c61; }
+    .page.neon .title-stamp { border-color:#59bdb1; background:#130e1d; color:#70d5c8; box-shadow:3px 3px 0 rgba(169,44,97,.22); }
+    .page.neon .name { color:#ce6792; }
+    .page.neon .identity { color:#ddbee3; }
+    .page.neon .identity #identitySub, .page.neon .bio, .page.neon .hint { color:#b692be; }
+    .page.neon .profile-tag { border-color:#4d2753; background:#140f1e; color:#d779a0; }
+    .page.neon .profile-tag:nth-child(2) { background:#102125; color:#7bc5bd; }
+    .page.neon .profile-tag:nth-child(3) { background:#1d1428; color:#bfa5d4; }
+    .page.neon .link-button { border-color:#442448; background:rgba(13,10,20,.92); box-shadow:0 8px 0 rgba(164,42,91,.08); }
+    .page.neon .link-button:hover { background:#17101f; box-shadow:0 12px 0 rgba(77,182,168,.1); }
+    .page.neon .link-button .icon { background:#301832; color:#79c7bd; }
+    .page.neon .tiny-link { border-color:#4d3154; background:#120e1b; color:#82c9c0; }
+    .page.neon .editor-link { border-color:#7f4268; background:#160e1e; color:#df87ac; }
+    .page.neon .editor-link:hover { background:#201226; box-shadow:0 7px 0 rgba(169,44,97,.13); }
+    .page.neon .art::before { border-color:rgba(86,178,167,.45); box-shadow:0 0 20px rgba(98,255,225,.06); }
+    .page.neon .art::after { background:radial-gradient(circle, #20152e 0%, #0b0910 66%); }
+    .page.neon .art-label { background:#170e20; border-color:#59bdb1; color:#78cfc3; box-shadow:4px 5px 0 rgba(169,44,97,.18); }
+    .page.neon .art-label b { color:#c56a91; }
+    .page.neon .orbit-dot { border-color:#59bdb1; background:#17111e; box-shadow:0 0 9px rgba(114,255,227,.22); }
+    .page.neon .character-button { border-color:#543054; background:#100c17; box-shadow:0 0 17px rgba(91,255,222,.12), 0 18px 0 rgba(169,44,97,.13); }
+    .page.neon .character-button::before { border-color:#a92c61; background:rgba(89,189,177,.2); }
+    .page.neon .character-portrait { filter:brightness(.84) contrast(1.05) saturate(1.03) drop-shadow(0 0 12px rgba(91,255,222,.2)); }
+    .page.neon .mini-note { background:#160e20; border-color:#59bdb1; color:#78cfc3; box-shadow:0 0 13px rgba(90,255,221,.15); }
+    .page.neon .chaos.bang { color:#c53b76; text-shadow:2px 0 #58aaa0; }
+    .page.neon .chaos.paw { color:#67bdb4; }
+    .page.neon .chaos.star { color:#c8ae52; }
+    .page.neon footer { color:#b290b8; }
+    .page.neon .tag { border:1px solid rgba(89,189,177,.3); background:rgba(22,15,30,.96); color:#d47b9e; box-shadow:0 0 9px rgba(255,72,154,.08); }
+    .page.neon .tag:nth-child(2) { border-color:rgba(184,76,128,.38); color:#79c7bd; }
+    .page.neon .tag:nth-child(3) { border-color:rgba(198,174,82,.3); color:#d4c174; }
+    .page.neon .secret-paw { filter:drop-shadow(0 0 8px rgba(89,189,177,.45)); }
+    footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:10px 0 26px; color:#aa8065; font:700 12px/1.4 "DM Sans",sans-serif; letter-spacing:.08em; }
+    .secret-paws { position:absolute; z-index:20; inset:0; overflow:hidden; pointer-events:none; }
+    .secret-paw { position:absolute; color:#a96843; font-size:clamp(25px,3vw,42px); opacity:0; filter:drop-shadow(0 4px 0 rgba(120,74,45,.12)); animation:secret-paw 1.8s ease forwards; animation-delay:var(--delay); }
+    @keyframes secret-paw { 0% { opacity:0; transform:scale(.3) rotate(-20deg); } 20%, 72% { opacity:.88; transform:scale(1) rotate(8deg); } 100% { opacity:0; transform:scale(.85) translateY(-16px) rotate(15deg); } }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+    .tag { padding:6px 9px; border-radius:999px; background:rgba(255,255,255,.55); }
+    .title-post, .title-stamp, .name, .identity, .identity #identitySub, .bio, .hint, footer { transition:color .48s ease, background .48s ease, border-color .48s ease, box-shadow .48s ease; }
+    .profile-tag, .link-button, .link-button .icon, .tag, .art-label, .orbit-dot, .mini-note { transition:color .48s ease, background .48s ease, border-color .48s ease, box-shadow .48s ease, transform .2s ease; }
+    .art::before, .art::after { transition:background .48s ease, border-color .48s ease, box-shadow .48s ease; }
+    header, main, footer { transition:opacity .16s ease, filter .16s ease; }
+    .page.is-theme-switching header, .page.is-theme-switching main, .page.is-theme-switching footer { opacity:.62; filter:blur(.35px); }
+    @media (max-width:840px) { main { grid-template-columns:1fr; padding-top:15px; } .intro { padding-bottom:0; } .art { width:min(630px,100%); height:590px; min-height:0; margin:0 auto; } .character-button { left:61%; top:8%; width:min(520px,84%); transform:translateX(-50%) rotate(-3deg); } }
+    @media (max-width:520px) { .wrap { width:min(100% - 32px, 500px); } header { min-height:64px; gap:8px; } .tiny-link, .editor-link { padding:9px 10px; font-size:10px; } main { min-height:0; padding:22px 0 15px; } .title-pre { font-size:29px; } h1 em { font-size:84px; } .title-post { font-size:33px; } .title-stamp { margin-left:4px; padding:7px 9px; font-size:10px; } .identity { margin-top:19px; font-size:16px; } .identity #identitySub { font-size:14px; } .profile-tags { margin:13px 0 15px; } .profile-tag { font-size:11px; padding:7px 9px; } .bio { margin:0 0 21px; font-size:13px; } .button-grid { gap:9px; } .link-button { min-height:57px; padding:9px 11px; gap:10px; border-radius:16px; } .link-button .icon { flex-basis:33px; width:33px; height:33px; border-radius:10px; font-size:15px; } .link-button strong { font-size:13px; } .link-button span:last-child { font-size:10px; } .art { height:455px; margin-top:4px; } .character-button { left:61%; top:8%; width:84%; padding:7px; border-radius:30px; transform:translateX(-50%) rotate(-3deg); } .character-portrait { border-radius:21px; } .tap-hint { display:none; } .art-label { left:-1%; top:7%; padding:10px 12px; font-size:12px; } .art-label b { font-size:10px; } .orbit-dot.one { left:5%; bottom:22%; } .orbit-dot.two { left:10%; bottom:16%; } .mini-note { right:-7%; bottom:18%; padding:11px 13px; font-size:14px; } .chaos.bang { left:1%; top:1%; font-size:39px; } .chaos.paw { right:-9%; top:19%; font-size:26px; } .chaos.star { left:1%; bottom:12%; font-size:32px; } footer { align-items:flex-start; flex-direction:column; padding-top:18px; font-size:10px; } .tags { justify-content:flex-start; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <i class="blob one" aria-hidden="true"></i><i class="blob two" aria-hidden="true"></i><i class="dots a" aria-hidden="true"></i><i class="dots b" aria-hidden="true"></i>
+    <header class="wrap"><a class="editor-link" href="https://sentoyuina.github.io/editor-portfolio/" target="_blank" rel="noreferrer">✂　<span id="editorText">剪輯作品集</span></a><button class="tiny-link" id="languageToggle" type="button" aria-label="切換網站語言">ENG</button><button class="tiny-link" id="themeToggle" type="button" aria-pressed="false">✦　NEON 模式</button></header>
+    <main class="wrap">
+      <section class="intro" aria-labelledby="site-title">
+        <p class="kicker" id="kicker">YOU FOUND A WILD BEAR! 🐾</p>
+        <h1 id="site-title"><span class="title-pre" id="titlePre">咦？發現一隻</span><em id="titleName">悠依奈</em><span class="title-post" id="titlePost">出沒中！</span><span class="title-stamp" id="titleStamp">熊熊小鎮<br>熊老大</span><span class="name" id="nameLine">SENTO YUINA</span></h1>
+        <p class="identity"><span id="identityMain">馬來西亞中文 VTuber｜男孩紙熊熊</span><br><span id="identitySub">喜歡聊天、遊戲、唱歌，還有照顧路過的人類</span></p>
+        <div class="profile-tags" aria-label="個人標籤"><span class="profile-tag" id="tagOne">🐻 男孩紙熊熊</span><span class="profile-tag" id="tagTwo">🇲🇾 Malaysia VTuber</span><span class="profile-tag" id="tagThree">💚 ENFJ</span></div>
+        <p class="bio" id="bioText">你被邀請進熊熊小鎮逛逛了！想一起玩就按個按鈕進來吧。</p>
+        <nav class="button-grid" aria-label="千田悠依奈的連結">
+          <a class="link-button" href="https://www.youtube.com/@Sento_Yuina" target="_blank" rel="noreferrer"><span class="icon">▶</span><span><strong>YouTube</strong><span id="youtubeDetail">直播／精華</span></span></a>
+          <a class="link-button" href="https://x.com/sento_yuina" target="_blank" rel="noreferrer"><span class="icon">𝕏</span><span><strong>X / Twitter</strong><span id="xDetail">熊熊日常</span></span></a>
+          <a class="link-button" href="https://marshmallow-qa.com/sento_yuina" target="_blank" rel="noreferrer"><span class="icon">✉</span><span><strong>棉花糖</strong><span id="marshmallowDetail">想說的話丟這裡</span></span></a>
+          <a class="link-button" href="https://discord.gg/TcBgMzeSRU" target="_blank" rel="noreferrer"><span class="icon">☁</span><span><strong>Discord</strong><span id="discordDetail">熊熊小鎮邀請函</span></span></a>
+          <a class="link-button" href="https://ganknow.com/SentoYuina/tip" target="_blank" rel="noreferrer"><span class="icon">♡</span><span><strong>Support</strong><span id="supportDetail">幫忙蓋小鎮</span></span></a>
+        </nav>
+        <p class="hint" id="hintText">🍯 來自馬來西亞的中文 VTuber</p>
+      </section>
+      <aside class="art" aria-label="千田悠依奈主視覺與表情貼圖">
+        <button class="art-label" id="secretClue" type="button" aria-label="查看熊熊觀察檔案"><span id="artLabel">熊熊觀察檔案</span><b id="artCode">鍵盤暗號？</b></button>
+        <span class="orbit-dot one" aria-hidden="true"></span><span class="orbit-dot two" aria-hidden="true"></span>
+        <button class="character-button" id="characterButton" type="button" aria-label="點擊切換悠依奈表情">
+          <img class="character-portrait" id="characterPortrait" src="images/emote-hi.png" alt="悠依奈的可愛表情">
+          <span class="tap-hint" id="tapHint">點一下換表情</span>
+        </button>
+        <span class="chaos bang" aria-hidden="true">!</span><span class="chaos paw" aria-hidden="true">🐾</span><span class="chaos star" aria-hidden="true">✦</span>
+        <span class="mini-note" id="miniNote">熊熊出沒中！</span>
+      </aside>
+    </main>
+    <footer class="wrap"><span id="footerText">© SENTO YUINA · 熊熊小鎮</span><span class="tags"><span class="tag">#YinaiArt</span><span class="tag">#YinaiMeme</span><span class="tag">#中文V</span></span></footer>
+  </div>
+  <script>
+    const page = document.querySelector('.page');
+    const portrait = document.getElementById('characterPortrait');
+    const characterButton = document.getElementById('characterButton');
+    const themeToggle = document.getElementById('themeToggle');
+    const languageToggle = document.getElementById('languageToggle');
+    const secretClue = document.getElementById('secretClue');
+    const artCode = document.getElementById('artCode');
+    const portraits = {
+      normal: 'images/emote-hi.png',
+      expression: 'images/emote-yum.png',
+      neonClose: 'images/emote-peek.png',
+      neonD3: 'images/emote-d3.png'
+    };
+    const copyByLanguage = {
+      zh: {
+        sunny: {
+          kicker: '發現一隻野生熊熊！🐾', titlePre: '咦？發現一隻', titleName: '悠依奈', titlePost: '出沒中！', titleStamp: '熊熊小鎮<br>熊老大', nameLine: 'SENTO YUINA', editorText: '剪輯作品集',
+          identityMain: '馬來西亞中文 VTuber｜男孩紙熊熊', identitySub: '喜歡聊天、遊戲、唱歌，還有照顧路過的人類',
+          tagOne: '🐻 男孩紙熊熊', tagTwo: '🇲🇾 馬來西亞 VTuber', tagThree: '💚 ENFJ', bioText: '你被邀請進熊熊小鎮逛逛了！想一起玩就按個按鈕進來吧。',
+          youtubeDetail: '直播／精華', xDetail: '熊熊日常', marshmallowDetail: '想說的話丟這裡', discordDetail: '熊熊小鎮邀請函', supportDetail: '幫忙蓋小鎮',
+          hintText: '🍯 來自馬來西亞的中文 VTuber', artLabel: '熊熊觀察檔案', artCode: '鍵盤暗號？', tapHint: '點一下換表情', miniNote: '熊熊出沒中！', footerText: '© SENTO YUINA · 熊熊小鎮'
+        },
+        neon: {
+          kicker: '警告：偵測到夜行熊熊', titlePre: '警告：鎖定目標', titleName: '悠依奈', titlePost: '即將失控！', titleStamp: '夜行熊熊<br>危險等級：MAX', nameLine: 'SENTO YUINA // AFTER DARK', editorText: '剪輯作品集',
+          identityMain: '馬來西亞中文 VTuber｜夜行熊熊', identitySub: '聊天、遊戲、唱歌——深夜也別想逃。',
+          tagOne: '🐻 夜行熊熊', tagTwo: '🇲🇾 馬來西亞 // 03', tagThree: '⚡ ENFJ // CHAOS', bioText: '既然闖進來了，就留下來一起鬧。',
+          youtubeDetail: '直播 // 無法逃離', xDetail: '夜間雜訊', marshmallowDetail: '丟下一句祕密', discordDetail: '進入熊熊巢穴', supportDetail: '為混亂加油',
+          hintText: '⚠ 夜間出沒｜請小心接近', artLabel: '危險觀察檔案', artCode: '暗號藏在夜裡', tapHint: '試試看。', miniNote: '別移開視線。', footerText: '© SENTO YUINA · 夜行模式'
+        }
+      },
+      en: {
+        sunny: {
+          kicker: 'YOU FOUND A WILD BEAR! 🐾', titlePre: 'HEY, YOU FOUND', titleName: 'YUINA', titlePost: 'ON THE LOOSE!', titleStamp: 'BEAR TOWN<br>HEAD BEAR', nameLine: 'SENTO YUINA', editorText: 'EDITOR PORTFOLIO',
+          identityMain: 'Malaysian Chinese VTuber | Bear Boy', identitySub: 'I like chatting, games, singing, and looking after wandering humans.',
+          tagOne: '🐻 Bear Boy', tagTwo: '🇲🇾 Malaysia VTuber', tagThree: '💚 ENFJ', bioText: 'Welcome to Bear Town. Tap a button and come hang out!',
+          youtubeDetail: 'Streams / Clips', xDetail: 'Bear Life', marshmallowDetail: 'Drop a message', discordDetail: 'Bear Town invite', supportDetail: 'Help build Bear Town',
+          hintText: '🍯 Chinese VTuber from Malaysia', artLabel: 'BEAR CASE FILE', artCode: 'KEYBOARD CLUE?', tapHint: 'TAP TO SWITCH', miniNote: 'BEAR SPOTTED!', footerText: '© SENTO YUINA · BEAR TOWN'
+        },
+        neon: {
+          kicker: 'WARNING: NIGHT BEAR DETECTED', titlePre: 'TARGET', titleName: 'YUINA', titlePost: 'UNLEASHED.', titleStamp: 'NIGHT BEAR<br>THREAT: MAX', nameLine: 'SENTO YUINA // AFTER DARK', editorText: 'EDITOR PORTFOLIO',
+          identityMain: 'Malaysian Chinese VTuber | Night Bear', identitySub: "Chat, games, singing—don't expect to escape after dark.",
+          tagOne: '🐻 NIGHT BEAR', tagTwo: '🇲🇾 MALAYSIA // 03', tagThree: '⚡ ENFJ // CHAOS', bioText: 'You found your way in. Stay and make some noise.',
+          youtubeDetail: 'LIVE // NO EXIT', xDetail: 'NIGHTLY NOISE', marshmallowDetail: 'DROP A CONFESSION', discordDetail: 'ENTER THE DEN', supportDetail: 'FUEL THE CHAOS',
+          hintText: '⚠ ACTIVE AT NIGHT // APPROACH WITH CARE', artLabel: 'DANGER CASE FILE', artCode: 'THE KEY HIDES AT NIGHT', tapHint: 'TRY ME.', miniNote: "DON'T LOOK AWAY", footerText: '© SENTO YUINA · AFTER DARK'
+        }
+      }
+    };
+    let activeClip = 'normal';
+    let isNeon = false;
+    let currentLanguage = 'zh';
+
+    function updateThemeCopy() {
+      const copy = copyByLanguage[currentLanguage][isNeon ? 'neon' : 'sunny'];
+      page.classList.toggle('english', currentLanguage === 'en');
+      Object.entries(copy).forEach(([id, text]) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = text;
+      });
+      document.getElementById('titleStamp').innerHTML = copy.titleStamp;
+      languageToggle.textContent = currentLanguage === 'zh' ? 'ENG' : '中文';
+      themeToggle.textContent = isNeon
+        ? (currentLanguage === 'zh' ? '☀　日間模式' : '☀　SUNNY MODE')
+        : (currentLanguage === 'zh' ? '✦　NEON 模式' : '✦　NEON MODE');
+    }
+
+    updateThemeCopy();
+
+    function showPortrait(name) {
+      if (activeClip === name) return;
+      activeClip = name;
+      characterButton.classList.add('is-switching');
+      window.setTimeout(() => {
+        portrait.src = portraits[name];
+        portrait.alt = name.startsWith('neon') ? 'NEON 模式的悠依奈表情' : '悠依奈的可愛表情';
+        characterButton.classList.remove('is-switching');
+      }, 150);
+    }
+
+    function triggerBearTrail() {
+      if (document.querySelector('.secret-paws')) return;
+      const layer = document.createElement('div');
+      layer.className = 'secret-paws';
+      const pawPoints = [[8,76,-8],[20,68,9],[32,61,-7],[44,53,10],[56,45,-8],[68,37,8],[80,29,-6]];
+      pawPoints.forEach(([left, top, rotation], index) => {
+        const paw = document.createElement('span');
+        paw.className = 'secret-paw';
+        paw.textContent = '🐾';
+        paw.style.left = `${left}%`;
+        paw.style.top = `${top}%`;
+        paw.style.setProperty('--delay', `${index * 90}ms`);
+        paw.style.rotate = `${rotation}deg`;
+        layer.appendChild(paw);
+      });
+      page.appendChild(layer);
+      window.setTimeout(() => layer.remove(), 2600);
+    }
+
+    characterButton.addEventListener('click', () => {
+      if (isNeon) {
+        showPortrait(activeClip === 'neonClose' ? 'neonD3' : 'neonClose');
+      } else {
+        showPortrait(activeClip === 'normal' ? 'expression' : 'normal');
+      }
+    });
+
+    themeToggle.addEventListener('click', () => {
+      if (page.classList.contains('is-theme-switching')) return;
+      page.classList.add('is-theme-switching');
+      window.setTimeout(() => {
+        isNeon = !isNeon;
+        page.classList.toggle('neon', isNeon);
+        themeToggle.setAttribute('aria-pressed', String(isNeon));
+        updateThemeCopy();
+        showPortrait(isNeon ? 'neonClose' : 'normal');
+        window.requestAnimationFrame(() => page.classList.remove('is-theme-switching'));
+      }, 150);
+    });
+
+    secretClue.addEventListener('click', () => {
+      artCode.textContent = 'KEY: B E A R';
+      window.setTimeout(() => {
+        artCode.textContent = copyByLanguage[currentLanguage][isNeon ? 'neon' : 'sunny'].artCode;
+      }, 2200);
+    });
+
+    languageToggle.addEventListener('click', () => {
+      if (page.classList.contains('is-theme-switching')) return;
+      page.classList.add('is-theme-switching');
+      window.setTimeout(() => {
+        currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+        updateThemeCopy();
+        window.requestAnimationFrame(() => page.classList.remove('is-theme-switching'));
+      }, 150);
+    });
+
+    let keyBuffer = '';
+    document.addEventListener('keydown', (event) => {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.key.length !== 1) return;
+      keyBuffer = `${keyBuffer}${event.key.toLowerCase()}`.slice(-4);
+      if (keyBuffer === 'bear') {
+        triggerBearTrail();
+        keyBuffer = '';
+      }
+    });
+
+  </script>
+</body>
+</html>
