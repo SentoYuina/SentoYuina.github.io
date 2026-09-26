@@ -219,17 +219,21 @@
     };
     let activeClip = 'normal';
     let isNeon = false;
-    let currentLanguage = 'zh';
+    const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+    let currentLanguage = requestedLanguage === 'en' ? 'en' : 'zh';
 
     function updateThemeCopy() {
       const copy = copyByLanguage[currentLanguage][isNeon ? 'neon' : 'sunny'];
       page.classList.toggle('english', currentLanguage === 'en');
+      document.documentElement.lang = currentLanguage === 'en' ? 'en' : 'zh-Hant';
+      document.title = currentLanguage === 'en' ? 'Sento Yuina | Bear Town' : '千田悠依奈｜熊熊小鎮';
       Object.entries(copy).forEach(([id, text]) => {
         const element = document.getElementById(id);
         if (element) element.textContent = text;
       });
       document.getElementById('titleStamp').innerHTML = copy.titleStamp;
       languageToggle.textContent = currentLanguage === 'zh' ? 'ENG' : '中文';
+      languageToggle.setAttribute('aria-label', currentLanguage === 'zh' ? '切換為英文' : 'Switch website to Chinese');
       themeToggle.textContent = isNeon
         ? (currentLanguage === 'zh' ? '☀　日間模式' : '☀　SUNNY MODE')
         : (currentLanguage === 'zh' ? '✦　NEON 模式' : '✦　NEON MODE');
@@ -300,6 +304,10 @@
       page.classList.add('is-theme-switching');
       window.setTimeout(() => {
         currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+        const url = new URL(window.location.href);
+        if (currentLanguage === 'en') url.searchParams.set('lang', 'en');
+        else url.searchParams.delete('lang');
+        window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
         updateThemeCopy();
         window.requestAnimationFrame(() => page.classList.remove('is-theme-switching'));
       }, 150);
